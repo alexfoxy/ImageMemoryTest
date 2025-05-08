@@ -16,6 +16,7 @@ import {
 } from 'react-native'
 
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
+const imageSize = 3000
 
 function App(): React.JSX.Element {
   const [imageUri, setImageUri] = useState<string | null>(null)
@@ -85,6 +86,8 @@ function App(): React.JSX.Element {
               ? require('./assets/img.jpg')
               : { uri: imageUri }
             }
+            width={imageSize}
+            height={imageSize}
             style={styles.image}
             resizeMode="contain"
           />
@@ -125,8 +128,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: imageSize,
+    height: imageSize,
+    zIndex: -1,
   },
 })
 
